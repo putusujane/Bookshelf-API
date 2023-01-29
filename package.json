@@ -1,0 +1,34 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "Submission Bookshelf API",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/putusujane/Bookshelf-API.git"
+  },
+  "keywords": [
+    "Bookshelf",
+    "API"
+  ],
+  "author": "Putu Sujane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/putusujane/Bookshelf-API/issues"
+  },
+  "homepage": "https://github.com/putusujane/Bookshelf-API#readme",
+  "dependencies": {
+    "@hapi/hapi": "^21.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.20"
+  }
+}
