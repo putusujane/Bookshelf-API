@@ -42,7 +42,7 @@ const simpanBukuHandler = (request, h) => {
   // nanoid
   const id = nanoid(10);
 
-  // Insert & Update
+  // Tanggal ditambahkan (insertedAt) dan diperbarui (updatedAt) buku.
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
 
@@ -243,7 +243,7 @@ const hapusBukuHandler = (request, h) => {
   return response;
 };
 
-module.exports = { // Eksport handler.
+module.exports = { // Ekspor handler.
   simpanBukuHandler,
   tampilkanSemuaBukuHandler,
   detailBukuHandler,

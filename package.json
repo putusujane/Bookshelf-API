@@ -1,10 +1,9 @@
 {
   "name": "bookshelf-api",
   "version": "1.0.0",
-  "description": "Submission Bookshelf API",
+  "description": "Submission Bookshelf API Dicoding",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon ./src/server.js",
     "start": "node ./src/server.js",
     "lint": "eslint ./src"
   },
@@ -14,7 +13,8 @@
   },
   "keywords": [
     "Bookshelf",
-    "API"
+    "API",
+    "Dicoding"
   ],
   "author": "Putu Sujane",
   "license": "ISC",

@@ -1,5 +1,3 @@
-const books = [
+const books = [];
 
-];
-
-module.exports = books; // Eksport variabel books.
+module.exports = books; // Ekspor variabel books.

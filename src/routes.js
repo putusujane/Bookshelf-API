@@ -88,4 +88,4 @@ const routes = [
   },
 ];
 
-module.exports = routes; // Eksport variabel routes.
+module.exports = routes; // Ekspor variabel routes.

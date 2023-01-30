@@ -1,10 +1,10 @@
 const Hapi = require('@hapi/hapi'); // Impor modul pihak ketiga @hapi/hapi
-const routes = require('./routes'); // impor modul loka routes.js
+const routes = require('./routes'); // impor modul lokal routes.js
 
 // Fungsi init
 const init = async () => {
   const server = Hapi.server({
-    port: 9_000,
+    port: 9000,
     host: 'localhost',
 
     routes: {
