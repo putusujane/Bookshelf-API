@@ -87,8 +87,8 @@ const simpanBukuHandler = (request, h) => {
 };
 // ==================================================
 
-// MENAMPILKAN SELURUH BUKU
-const tampilkanSeluruhBukuHandler = (request, h) => {
+// MENAMPILKAN SEMUA BUKU
+const tampilkanSemuaBukuHandler = (request, h) => {
   const { name, reading, finished } = request.query;
 
   let filterBooks = books;
@@ -245,7 +245,7 @@ const hapusBukuHandler = (request, h) => {
 
 module.exports = { // Eksport handler.
   simpanBukuHandler,
-  tampilkanSeluruhBukuHandler,
+  tampilkanSemuaBukuHandler,
   detailBukuHandler,
   ubahBukuHandler,
   hapusBukuHandler,

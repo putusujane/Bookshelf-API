@@ -1,6 +1,6 @@
 const {
   simpanBukuHandler,
-  tampilkanSeluruhBukuHandler,
+  tampilkanSemuaBukuHandler,
   detailBukuHandler,
   ubahBukuHandler,
   hapusBukuHandler,
@@ -59,11 +59,11 @@ const routes = [
     handler: simpanBukuHandler,
   },
 
-  // MENAMPILKAN SELURUH BUKU
+  // MENAMPILKAN SEMUA BUKU
   {
     method: 'GET',
     path: '/books',
-    handler: tampilkanSeluruhBukuHandler,
+    handler: tampilkanSemuaBukuHandler,
   },
 
   // MENAMPILKAN DETAIL BUKU
