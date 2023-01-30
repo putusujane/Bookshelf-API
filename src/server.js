@@ -1,5 +1,5 @@
-const Hapi = require('@hapi/hapi');
-const routes = require('./routes');
+const Hapi = require('@hapi/hapi'); // Impor modul pihak ketiga @hapi/hapi
+const routes = require('./routes'); // impor modul loka routes.js
 
 // Fungsi init
 const init = async () => {
@@ -19,5 +19,10 @@ const init = async () => {
   await server.start();
   console.log(`Server is ON >> ${server.info.uri}`);
 };
+
+process.on('unhandledRejection', ((error) => {
+  console.log(error);
+  process.exit(1);
+}));
 
 init();

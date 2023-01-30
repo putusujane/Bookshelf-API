@@ -36,6 +36,22 @@ const routes = [
     },
   },
 
+  // Jika akses method dan path lain
+  {
+    method: '*',
+    path: '/{any*}',
+    handler: (request, h) => {
+      const response = h.response({
+        status: 'fail',
+        message: 'Halaman tidak ditemukan!',
+      });
+      response.code(404);
+      response.type('application/json');
+      response.header('X-Powered-By', 'NodeJS');
+      return response;
+    },
+  },
+
   // MENYIMPAN BUKU
   {
     method: 'POST',
@@ -72,4 +88,4 @@ const routes = [
   },
 ];
 
-module.exports = routes;
+module.exports = routes; // Eksport variabel routes.
