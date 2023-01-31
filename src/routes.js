@@ -1,4 +1,4 @@
-const {
+const { // Impor fungsi handler.js
   simpanBukuHandler,
   tampilkanSemuaBukuHandler,
   detailBukuHandler,
@@ -6,13 +6,15 @@ const {
   hapusBukuHandler,
 } = require('./handler');
 
+const home = require('./home'); // Impor variabel home di home.js
+
 const routes = [
   // Home Page
   {
     method: 'GET',
     path: '/',
     handler: (request, h) => {
-      const response = h.response('<style>body {display: flex; flex-direction: column; justify-content: center; align-items: center;}</style><h1>Home Page</h1><p>Submission Bookshelf API Dicoding</p><p>By Putu Sujane</p>');
+      const response = h.response(home);
       response.code(200);
       response.type('text/html');
       response.header('X-Powered-By', 'NodeJS');
@@ -20,7 +22,7 @@ const routes = [
     },
   },
 
-  // Jika akses menggunakan method lainnya pada path / (homepage)
+  // Jika akses menggunakan method lainnya pada path '/' (Home Page)
   {
     method: '*',
     path: '/',
