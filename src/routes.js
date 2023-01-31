@@ -13,45 +13,21 @@ const routes = [
   {
     method: 'GET',
     path: '/',
-    handler: (request, h) => {
-      const response = h.response(home);
-      response.code(200);
-      response.type('text/html');
-      response.header('X-Powered-By', 'NodeJS');
-      return response;
-    },
+    handler: (request, h) => h.response(home).code(200),
   },
 
   // Jika akses menggunakan method lainnya pada path '/' (Home Page)
   {
     method: '*',
     path: '/',
-    handler: (request, h) => {
-      const response = h.response({
-        status: 'fail',
-        message: 'Tidak bisa akses menggunakan method ini!',
-      });
-      response.code(400);
-      response.type('application/json');
-      response.header('X-Powered-By', 'NodeJS');
-      return response;
-    },
+    handler: (request, h) => h.response({ status: 'fail', message: 'Tidak bisa akses menggunakan method ini!' }).code(400),
   },
 
   // Jika akses method dan path lain
   {
     method: '*',
     path: '/{any*}',
-    handler: (request, h) => {
-      const response = h.response({
-        status: 'fail',
-        message: 'Halaman tidak ditemukan!',
-      });
-      response.code(404);
-      response.type('application/json');
-      response.header('X-Powered-By', 'NodeJS');
-      return response;
-    },
+    handler: (request, h) => h.response({ status: 'fail', message: 'Halaman tidak ditemukan!' }).code(404),
   },
 
   // MENYIMPAN BUKU

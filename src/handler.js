@@ -18,22 +18,18 @@ const simpanBukuHandler = (request, h) => {
 
   // Kondisi jika tidak melampirkan nama buku.
   if (name === undefined) {
-    const response = h.response({
+    return h.response({
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
-    });
-    response.code(400);
-    return response;
+    }).code(400);
   }
 
   // Kondisi nilai readPage lebih dari nilai pageCount.
   if (readPage > pageCount) {
-    const response = h.response({
+    return h.response({
       status: 'fail',
       message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
-    });
-    response.code(400);
-    return response;
+    }).code(400);
   }
 
   // Kondisi apakah buku selesai dibaca atau belum.
@@ -66,24 +62,20 @@ const simpanBukuHandler = (request, h) => {
   const isSuccess = books.filter((book) => book.id === id).length > 0;
 
   if (isSuccess) {
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: 'Buku berhasil ditambahkan',
       data: {
         bookId: id,
       },
-    });
-    response.code(201);
-    return response;
+    }).code(201);
   }
 
   // Jika gagal Memasukkan buku
-  const response = h.response({
+  return h.response({
     status: 'error',
     message: 'Buku gagal ditambahkan',
-  });
-  response.code(500);
-  return response;
+  }).code(500);
 };
 // ==================================================
 
@@ -109,7 +101,7 @@ const tampilkanSemuaBukuHandler = (request, h) => {
     filterBooks = filterBooks.filter((book) => book.finished === !!Number(finished));
   }
 
-  const response = h.response({
+  return h.response({
     status: 'success',
     data: {
       books: filterBooks.map((book) => ({
@@ -118,9 +110,7 @@ const tampilkanSemuaBukuHandler = (request, h) => {
         publisher: book.publisher,
       })),
     },
-  });
-  response.code(200);
-  return response;
+  }).code(200);
 };
 // ==================================================
 
@@ -139,12 +129,10 @@ const detailBukuHandler = (request, h) => {
     };
   }
 
-  const response = h.response({
+  return h.response({
     status: 'fail',
     message: 'Buku tidak ditemukan',
-  });
-  response.code(404);
-  return response;
+  }).code(404);
 };
 // ==================================================
 
@@ -169,21 +157,17 @@ const ubahBukuHandler = (request, h) => {
 
   if (index !== -1) {
     if (name === undefined) {
-      const response = h.response({
+      return h.response({
         status: 'fail',
         message: 'Gagal memperbarui buku. Mohon isi nama buku',
-      });
-      response.code(400);
-      return response;
+      }).code(400);
     }
 
     if (readPage > pageCount) {
-      const response = h.response({
+      return h.response({
         status: 'fail',
         message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
-      });
-      response.code(400);
-      return response;
+      }).code(400);
     }
 
     const finished = (readPage === pageCount);
@@ -202,20 +186,16 @@ const ubahBukuHandler = (request, h) => {
       updatedAt,
     };
 
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: 'Buku berhasil diperbarui',
-    });
-    response.code(200);
-    return response;
+    }).code(200);
   }
 
-  const response = h.response({
+  return h.response({
     status: 'fail',
     message: 'Gagal memperbarui buku. Id tidak ditemukan',
-  });
-  response.code(404);
-  return response;
+  }).code(404);
 };
 // ==================================================
 
@@ -227,20 +207,16 @@ const hapusBukuHandler = (request, h) => {
   if (index !== -1) {
     books.splice(index, 1);
 
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: 'Buku berhasil dihapus',
-    });
-    response.code(200);
-    return response;
+    }).code(200);
   }
 
-  const response = h.response({
+  return h.response({
     status: 'fail',
     message: 'Buku gagal dihapus. Id tidak ditemukan',
-  });
-  response.code(404);
-  return response;
+  }).code(404);
 };
 
 module.exports = { // Ekspor handler.

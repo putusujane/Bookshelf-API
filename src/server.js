@@ -14,6 +14,18 @@ const init = async () => {
     },
   });
 
+  // Response nilai "type" dan "header" otomatis
+  server.ext('onPreResponse', (request, h) => {
+    const { response } = request;
+    if (!response.headers['Content-Type'] || !response.headers['X-Powered-By']) {
+      response.type('application/json');
+      response.header('X-Powered-By', 'Hapi');
+      response.header('X-Author', 'Putu-Sujane');
+    }
+
+    return h.continue;
+  });
+
   server.route(routes);
 
   await server.start();
